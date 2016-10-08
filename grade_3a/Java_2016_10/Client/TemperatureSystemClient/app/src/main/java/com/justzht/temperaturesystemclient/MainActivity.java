@@ -1,10 +1,21 @@
 package com.justzht.temperaturesystemclient;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
+import android.widget.FrameLayout;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import static android.content.Context.SENSOR_SERVICE;
 
 import com.mikepenz.materialdrawer.*;
 import com.mikepenz.materialdrawer.Drawer;
@@ -13,16 +24,9 @@ import com.mikepenz.materialdrawer.holder.BadgeStyle;
 import com.mikepenz.materialdrawer.holder.StringHolder;
 import com.mikepenz.materialdrawer.interfaces.OnCheckedChangeListener;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.ExpandableDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondarySwitchDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryToggleDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
-import com.mikepenz.materialdrawer.model.ToggleDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
@@ -34,11 +38,25 @@ import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 
-public class MainActivity extends AppCompatActivity
+import java.io.Console;
+
+public class MainActivity extends AppCompatActivity implements SensorEventListener
 {
     private static final int PROFILE_SETTING = 100000;
     private Drawer result = null;
     private AccountHeader headerResult = null;
+
+    private FrameLayout frameLayout = null;
+    private Fragment dataMiningFragment = null;
+    private Fragment dataStatisticsFragment = null;
+
+    private Toolbar toolbar = null;
+
+    private SensorManager mSensorManager;
+    private Sensor mTempSensor;
+
+    public float temperature = 100;
+
 
 
     @Override
@@ -47,10 +65,31 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("模拟温度系统");
+        mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        if (mSensorManager != null)
+        {
+            mTempSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+            if (mTempSensor == null)
+            {
+                Log.e("MainActivity","(mTempSensor == null)");
+            }
+        }
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("数据采集");
         setSupportActionBar(toolbar);
 
+        frameLayout = (FrameLayout)findViewById(R.id.frame_layout);
+        dataMiningFragment =  new DataMiningFragment();
+        dataStatisticsFragment = new DataStatisticsFragment();
+
+        FragmentManager fragMan = getFragmentManager();
+        FragmentTransaction fragTransaction = fragMan.beginTransaction();
+        fragTransaction.add(frameLayout.getId(), dataMiningFragment , "dataMiningFragment");
+//        fragTransaction.hide(dataMiningFragment);
+        fragTransaction.add(frameLayout.getId(), dataStatisticsFragment , "dataStatisticsFragment");
+        fragTransaction.hide(dataStatisticsFragment);
+        fragTransaction.commit();
 
 
         final IProfile profile1 = new ProfileDrawerItem().withName("郑昊天").withEmail("justzht@gmail.com").withIcon("https://avatars1.githubusercontent.com/u/8359912?v=3&s=400").withIdentifier(1);
@@ -100,10 +139,10 @@ public class MainActivity extends AppCompatActivity
                 .withItemAnimator(new AlphaCrossFadeAnimator())
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName("数据采集").withIcon(GoogleMaterial.Icon.gmd_file_download).withIdentifier(1).withSelectable(false),
-                        new PrimaryDrawerItem().withName("数据统计").withIcon(GoogleMaterial.Icon.gmd_assessment).withIdentifier(2).withSelectable(false),
+                        new PrimaryDrawerItem().withName("数据采集").withIcon(GoogleMaterial.Icon.gmd_file_download).withIdentifier(1001).withSelectable(true),
+                        new PrimaryDrawerItem().withName("数据统计").withIcon(GoogleMaterial.Icon.gmd_assessment).withIdentifier(1002).withSelectable(true),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName("设置").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(3).withSelectable(false)
+                        new PrimaryDrawerItem().withName("设置").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(1003).withSelectable(true)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -114,22 +153,26 @@ public class MainActivity extends AppCompatActivity
                         //--> click on the footer
                         //those items don't contain a drawerItem
 
-                        if (drawerItem != null) {
-                            Intent intent = null;
-                            if (drawerItem.getIdentifier() == 1)
+                        if (drawerItem != null)
+                        {
+                            FragmentManager fragmentManager = getFragmentManager();
+                            FragmentTransaction ft = fragmentManager.beginTransaction();
+                            if (drawerItem.getIdentifier() == 1001)
                             {
-//                                intent = new Intent(DrawerActivity.this, CompactHeaderDrawerActivity.class);
-                            } else if (drawerItem.getIdentifier() == 2)
+                                ft.hide(dataStatisticsFragment);
+                                ft.show(dataMiningFragment);
+                                toolbar.setTitle("数据采集");
+                            } else if (drawerItem.getIdentifier() == 1002)
+                            {
+                                ft.hide(dataMiningFragment);
+                                ft.show(dataStatisticsFragment);
+                                toolbar.setTitle("数据统计");
+                            }
+                            else if (drawerItem.getIdentifier() == 1003)
                             {
 //                                intent = new Intent(DrawerActivity.this, ActionBarActivity.class);
                             }
-                            else if (drawerItem.getIdentifier() == 2)
-                            {
-//                                intent = new Intent(DrawerActivity.this, ActionBarActivity.class);
-                            }
-                            if (intent != null) {
-//                                DrawerActivity.this.startActivity(intent);
-                            }
+                            ft.commit();
                         }
 
                         return false;
@@ -158,6 +201,31 @@ public class MainActivity extends AppCompatActivity
         //add the values which need to be saved from the accountHeader to the bundle
         outState = headerResult.saveInstanceState(outState);
         super.onSaveInstanceState(outState);
+    }
+
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, mTempSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
+    }
+
+    public void onAccuracyChanged(Sensor sensor, int accuracy)
+    {
+
+    }
+
+    public void onSensorChanged(SensorEvent event)
+    {
+        temperature = (event.values[1]  + 100)/2;
+    }
+
+    public float getTemperature()
+    {
+        return temperature;
     }
 
 }

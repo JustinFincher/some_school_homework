@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0.46"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="140dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_add"
+            android:id="@+id/floatingActionButton"
+            app:backgroundTint="@color/md_teal_A700"
+            app:elevation="16dp"
+            android:tint="@color/md_white_1000"
+            app:fabSize="normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="63dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/temperature_text"
+        android:text="20 C"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textAlignment="center"
+        android:textSize="100sp"
+        android:typeface="monospace"
+        android:fontFamily="monospace"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/md_white_1000" />
+
+</RelativeLayout>
