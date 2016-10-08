@@ -1,0 +1,6 @@
+framework module Pods_SocketMessager {
+  umbrella header "Pods-SocketMessager-umbrella.h"
+
+  export *
+  module * { export * }
+}

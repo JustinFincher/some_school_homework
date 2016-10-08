@@ -1,0 +1,789 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D40402A1D0D9BC500DA24F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040291D0D9BC500DA24F5 /* main.m */; };
+		0D40402D1D0D9BC500DA24F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40402C1D0D9BC500DA24F5 /* AppDelegate.m */; };
+		0D4040331D0D9BC500DA24F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4040311D0D9BC500DA24F5 /* Main.storyboard */; };
+		0D4040351D0D9BC500DA24F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D4040341D0D9BC500DA24F5 /* Assets.xcassets */; };
+		0D4040381D0D9BC500DA24F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4040361D0D9BC500DA24F5 /* LaunchScreen.storyboard */; };
+		0D4040431D0D9BC500DA24F5 /* SocketMessagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040421D0D9BC500DA24F5 /* SocketMessagerTests.m */; };
+		0D40404E1D0D9BC500DA24F5 /* SocketMessagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40404D1D0D9BC500DA24F5 /* SocketMessagerUITests.m */; };
+		0D4040601D0DA02D00DA24F5 /* JZMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40405F1D0DA02D00DA24F5 /* JZMenuViewController.m */; };
+		0D4040631D0DAE5E00DA24F5 /* JZServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040621D0DAE5E00DA24F5 /* JZServerViewController.m */; };
+		0D4040661D0DB5B700DA24F5 /* JZClientJoinServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040651D0DB5B700DA24F5 /* JZClientJoinServerViewController.m */; };
+		0D4040701D0DD06F00DA24F5 /* JZSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40406F1D0DD06F00DA24F5 /* JZSocketManager.m */; };
+		0D4040741D0DDBB600DA24F5 /* JZClientChatNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040731D0DDBB600DA24F5 /* JZClientChatNaviController.m */; };
+		0D4040771D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040761D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.m */; };
+		0D4040881D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040861D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.m */; };
+		0D4040891D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D4040871D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.xib */; };
+		0D40408C1D0E000300DA24F5 /* JZClientChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40408B1D0E000300DA24F5 /* JZClientChatViewController.m */; };
+		0D4040901D0E0C2A00DA24F5 /* JZMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D40408F1D0E0C2A00DA24F5 /* JZMessageModel.m */; };
+		0D4040931D0E190C00DA24F5 /* JZMessageModelTextMsg.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040921D0E190C00DA24F5 /* JZMessageModelTextMsg.m */; };
+		0D4040961D0E193000DA24F5 /* JZMessageModelAllClientArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4040951D0E193000DA24F5 /* JZMessageModelAllClientArray.m */; };
+		581E8E49D3E54DBC73EE3C7B /* Pods_SocketMessager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA15AFA479AAB380051F523 /* Pods_SocketMessager.framework */; };
+		CC6A26B182F0A4CEBEA6FE7D /* Pods_SocketMessagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51005774C835E5BDB5FCB567 /* Pods_SocketMessagerTests.framework */; };
+		ECAE312179654358418C664C /* Pods_SocketMessagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662BE72F85A5EAAE11746563 /* Pods_SocketMessagerUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D40403F1D0D9BC500DA24F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D40401D1D0D9BC500DA24F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D4040241D0D9BC500DA24F5;
+			remoteInfo = SocketMessager;
+		};
+		0D40404A1D0D9BC500DA24F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D40401D1D0D9BC500DA24F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D4040241D0D9BC500DA24F5;
+			remoteInfo = SocketMessager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D4040251D0D9BC500DA24F5 /* SocketMessager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketMessager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D4040291D0D9BC500DA24F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0D40402B1D0D9BC500DA24F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0D40402C1D0D9BC500DA24F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0D4040321D0D9BC500DA24F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0D4040341D0D9BC500DA24F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D4040371D0D9BC500DA24F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0D4040391D0D9BC500DA24F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D40403E1D0D9BC500DA24F5 /* SocketMessagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketMessagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D4040421D0D9BC500DA24F5 /* SocketMessagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketMessagerTests.m; sourceTree = "<group>"; };
+		0D4040441D0D9BC500DA24F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D4040491D0D9BC500DA24F5 /* SocketMessagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketMessagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D40404D1D0D9BC500DA24F5 /* SocketMessagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketMessagerUITests.m; sourceTree = "<group>"; };
+		0D40404F1D0D9BC500DA24F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D40405E1D0DA02D00DA24F5 /* JZMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMenuViewController.h; sourceTree = "<group>"; };
+		0D40405F1D0DA02D00DA24F5 /* JZMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMenuViewController.m; sourceTree = "<group>"; };
+		0D4040611D0DAE5E00DA24F5 /* JZServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZServerViewController.h; sourceTree = "<group>"; };
+		0D4040621D0DAE5E00DA24F5 /* JZServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZServerViewController.m; sourceTree = "<group>"; };
+		0D4040641D0DB5B700DA24F5 /* JZClientJoinServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZClientJoinServerViewController.h; sourceTree = "<group>"; };
+		0D4040651D0DB5B700DA24F5 /* JZClientJoinServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZClientJoinServerViewController.m; sourceTree = "<group>"; };
+		0D40406E1D0DD06F00DA24F5 /* JZSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZSocketManager.h; sourceTree = "<group>"; };
+		0D40406F1D0DD06F00DA24F5 /* JZSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZSocketManager.m; sourceTree = "<group>"; };
+		0D4040721D0DDBB600DA24F5 /* JZClientChatNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZClientChatNaviController.h; sourceTree = "<group>"; };
+		0D4040731D0DDBB600DA24F5 /* JZClientChatNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZClientChatNaviController.m; sourceTree = "<group>"; };
+		0D4040751D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZClientChatGroupSelectionViewController.h; sourceTree = "<group>"; };
+		0D4040761D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZClientChatGroupSelectionViewController.m; sourceTree = "<group>"; };
+		0D4040851D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZClientChatGroupSelectionTableViewCell.h; sourceTree = "<group>"; };
+		0D4040861D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZClientChatGroupSelectionTableViewCell.m; sourceTree = "<group>"; };
+		0D4040871D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZClientChatGroupSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		0D40408A1D0E000300DA24F5 /* JZClientChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZClientChatViewController.h; sourceTree = "<group>"; };
+		0D40408B1D0E000300DA24F5 /* JZClientChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZClientChatViewController.m; sourceTree = "<group>"; };
+		0D40408E1D0E0C2A00DA24F5 /* JZMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMessageModel.h; sourceTree = "<group>"; };
+		0D40408F1D0E0C2A00DA24F5 /* JZMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMessageModel.m; sourceTree = "<group>"; };
+		0D4040911D0E190C00DA24F5 /* JZMessageModelTextMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMessageModelTextMsg.h; sourceTree = "<group>"; };
+		0D4040921D0E190C00DA24F5 /* JZMessageModelTextMsg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMessageModelTextMsg.m; sourceTree = "<group>"; };
+		0D4040941D0E193000DA24F5 /* JZMessageModelAllClientArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMessageModelAllClientArray.h; sourceTree = "<group>"; };
+		0D4040951D0E193000DA24F5 /* JZMessageModelAllClientArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMessageModelAllClientArray.m; sourceTree = "<group>"; };
+		51005774C835E5BDB5FCB567 /* Pods_SocketMessagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketMessagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56813EA90D5E0E8BF23EDF85 /* Pods-SocketMessagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessagerUITests/Pods-SocketMessagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		662BE72F85A5EAAE11746563 /* Pods_SocketMessagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketMessagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4A850093A3600450B56A7E /* Pods-SocketMessager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessager/Pods-SocketMessager.debug.xcconfig"; sourceTree = "<group>"; };
+		8AE064AF8BCFFD96C0F8E71D /* Pods-SocketMessagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessagerUITests/Pods-SocketMessagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9BA15AFA479AAB380051F523 /* Pods_SocketMessager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketMessager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC4AB9E62397D20B25F14E0 /* Pods-SocketMessagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessagerTests/Pods-SocketMessagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1F1C4A0BD8415806791CCFC /* Pods-SocketMessagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessagerTests/Pods-SocketMessagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F743F585A3286EEB5B2C4776 /* Pods-SocketMessager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketMessager.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocketMessager/Pods-SocketMessager.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D4040221D0D9BC500DA24F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				581E8E49D3E54DBC73EE3C7B /* Pods_SocketMessager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D40403B1D0D9BC500DA24F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC6A26B182F0A4CEBEA6FE7D /* Pods_SocketMessagerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D4040461D0D9BC500DA24F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECAE312179654358418C664C /* Pods_SocketMessagerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D40401C1D0D9BC500DA24F5 = {
+			isa = PBXGroup;
+			children = (
+				0D4040271D0D9BC500DA24F5 /* SocketMessager */,
+				0D4040411D0D9BC500DA24F5 /* SocketMessagerTests */,
+				0D40404C1D0D9BC500DA24F5 /* SocketMessagerUITests */,
+				0D4040261D0D9BC500DA24F5 /* Products */,
+				45AA02F270D334448D5F7C7C /* Pods */,
+				8F846C851E53CF2364904251 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0D4040261D0D9BC500DA24F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D4040251D0D9BC500DA24F5 /* SocketMessager.app */,
+				0D40403E1D0D9BC500DA24F5 /* SocketMessagerTests.xctest */,
+				0D4040491D0D9BC500DA24F5 /* SocketMessagerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D4040271D0D9BC500DA24F5 /* SocketMessager */ = {
+			isa = PBXGroup;
+			children = (
+				0D40402B1D0D9BC500DA24F5 /* AppDelegate.h */,
+				0D40402C1D0D9BC500DA24F5 /* AppDelegate.m */,
+				0D4040311D0D9BC500DA24F5 /* Main.storyboard */,
+				0D4040671D0DD01400DA24F5 /* Controller */,
+				0D40408D1D0E003B00DA24F5 /* View */,
+				0D4040711D0DD07200DA24F5 /* Data */,
+				0D4040341D0D9BC500DA24F5 /* Assets.xcassets */,
+				0D4040361D0D9BC500DA24F5 /* LaunchScreen.storyboard */,
+				0D4040391D0D9BC500DA24F5 /* Info.plist */,
+				0D4040281D0D9BC500DA24F5 /* Supporting Files */,
+			);
+			path = SocketMessager;
+			sourceTree = "<group>";
+		};
+		0D4040281D0D9BC500DA24F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0D4040291D0D9BC500DA24F5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D4040411D0D9BC500DA24F5 /* SocketMessagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D4040421D0D9BC500DA24F5 /* SocketMessagerTests.m */,
+				0D4040441D0D9BC500DA24F5 /* Info.plist */,
+			);
+			path = SocketMessagerTests;
+			sourceTree = "<group>";
+		};
+		0D40404C1D0D9BC500DA24F5 /* SocketMessagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0D40404D1D0D9BC500DA24F5 /* SocketMessagerUITests.m */,
+				0D40404F1D0D9BC500DA24F5 /* Info.plist */,
+			);
+			path = SocketMessagerUITests;
+			sourceTree = "<group>";
+		};
+		0D4040671D0DD01400DA24F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D40405E1D0DA02D00DA24F5 /* JZMenuViewController.h */,
+				0D40405F1D0DA02D00DA24F5 /* JZMenuViewController.m */,
+				0D4040611D0DAE5E00DA24F5 /* JZServerViewController.h */,
+				0D4040621D0DAE5E00DA24F5 /* JZServerViewController.m */,
+				0D4040641D0DB5B700DA24F5 /* JZClientJoinServerViewController.h */,
+				0D4040651D0DB5B700DA24F5 /* JZClientJoinServerViewController.m */,
+				0D4040721D0DDBB600DA24F5 /* JZClientChatNaviController.h */,
+				0D4040731D0DDBB600DA24F5 /* JZClientChatNaviController.m */,
+				0D4040751D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.h */,
+				0D4040761D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.m */,
+				0D40408A1D0E000300DA24F5 /* JZClientChatViewController.h */,
+				0D40408B1D0E000300DA24F5 /* JZClientChatViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0D4040711D0DD07200DA24F5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0D40406E1D0DD06F00DA24F5 /* JZSocketManager.h */,
+				0D40406F1D0DD06F00DA24F5 /* JZSocketManager.m */,
+				0D40408E1D0E0C2A00DA24F5 /* JZMessageModel.h */,
+				0D40408F1D0E0C2A00DA24F5 /* JZMessageModel.m */,
+				0D4040911D0E190C00DA24F5 /* JZMessageModelTextMsg.h */,
+				0D4040921D0E190C00DA24F5 /* JZMessageModelTextMsg.m */,
+				0D4040941D0E193000DA24F5 /* JZMessageModelAllClientArray.h */,
+				0D4040951D0E193000DA24F5 /* JZMessageModelAllClientArray.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		0D40408D1D0E003B00DA24F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D4040851D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.h */,
+				0D4040861D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.m */,
+				0D4040871D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		45AA02F270D334448D5F7C7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F4A850093A3600450B56A7E /* Pods-SocketMessager.debug.xcconfig */,
+				F743F585A3286EEB5B2C4776 /* Pods-SocketMessager.release.xcconfig */,
+				D1F1C4A0BD8415806791CCFC /* Pods-SocketMessagerTests.debug.xcconfig */,
+				AAC4AB9E62397D20B25F14E0 /* Pods-SocketMessagerTests.release.xcconfig */,
+				56813EA90D5E0E8BF23EDF85 /* Pods-SocketMessagerUITests.debug.xcconfig */,
+				8AE064AF8BCFFD96C0F8E71D /* Pods-SocketMessagerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F846C851E53CF2364904251 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BA15AFA479AAB380051F523 /* Pods_SocketMessager.framework */,
+				51005774C835E5BDB5FCB567 /* Pods_SocketMessagerTests.framework */,
+				662BE72F85A5EAAE11746563 /* Pods_SocketMessagerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D4040241D0D9BC500DA24F5 /* SocketMessager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D4040521D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessager" */;
+			buildPhases = (
+				F72420C6E8B027D56F271496 /* [CP] Check Pods Manifest.lock */,
+				0D4040211D0D9BC500DA24F5 /* Sources */,
+				0D4040221D0D9BC500DA24F5 /* Frameworks */,
+				0D4040231D0D9BC500DA24F5 /* Resources */,
+				AFB963B465C9B3C0C81B8A48 /* [CP] Embed Pods Frameworks */,
+				74BE8E71FF6BEEE92CD21FCB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocketMessager;
+			productName = SocketMessager;
+			productReference = 0D4040251D0D9BC500DA24F5 /* SocketMessager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D40403D1D0D9BC500DA24F5 /* SocketMessagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D4040551D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessagerTests" */;
+			buildPhases = (
+				D86CC08B7D644E47D1FE55F1 /* [CP] Check Pods Manifest.lock */,
+				0D40403A1D0D9BC500DA24F5 /* Sources */,
+				0D40403B1D0D9BC500DA24F5 /* Frameworks */,
+				0D40403C1D0D9BC500DA24F5 /* Resources */,
+				E59F2384BEC4B2F1DD1E3FFD /* [CP] Embed Pods Frameworks */,
+				78F8E4A2C582285396273557 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D4040401D0D9BC500DA24F5 /* PBXTargetDependency */,
+			);
+			name = SocketMessagerTests;
+			productName = SocketMessagerTests;
+			productReference = 0D40403E1D0D9BC500DA24F5 /* SocketMessagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0D4040481D0D9BC500DA24F5 /* SocketMessagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D4040581D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessagerUITests" */;
+			buildPhases = (
+				26695708D1D92C9A085B2F69 /* [CP] Check Pods Manifest.lock */,
+				0D4040451D0D9BC500DA24F5 /* Sources */,
+				0D4040461D0D9BC500DA24F5 /* Frameworks */,
+				0D4040471D0D9BC500DA24F5 /* Resources */,
+				C45CA66CB36266AB90FEF645 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D40404B1D0D9BC500DA24F5 /* PBXTargetDependency */,
+			);
+			name = SocketMessagerUITests;
+			productName = SocketMessagerUITests;
+			productReference = 0D4040491D0D9BC500DA24F5 /* SocketMessagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D40401D1D0D9BC500DA24F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = JustZht;
+				TargetAttributes = {
+					0D4040241D0D9BC500DA24F5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					0D40403D1D0D9BC500DA24F5 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 0D4040241D0D9BC500DA24F5;
+					};
+					0D4040481D0D9BC500DA24F5 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 0D4040241D0D9BC500DA24F5;
+					};
+				};
+			};
+			buildConfigurationList = 0D4040201D0D9BC500DA24F5 /* Build configuration list for PBXProject "SocketMessager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D40401C1D0D9BC500DA24F5;
+			productRefGroup = 0D4040261D0D9BC500DA24F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D4040241D0D9BC500DA24F5 /* SocketMessager */,
+				0D40403D1D0D9BC500DA24F5 /* SocketMessagerTests */,
+				0D4040481D0D9BC500DA24F5 /* SocketMessagerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D4040231D0D9BC500DA24F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D4040381D0D9BC500DA24F5 /* LaunchScreen.storyboard in Resources */,
+				0D4040891D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.xib in Resources */,
+				0D4040351D0D9BC500DA24F5 /* Assets.xcassets in Resources */,
+				0D4040331D0D9BC500DA24F5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D40403C1D0D9BC500DA24F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D4040471D0D9BC500DA24F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26695708D1D92C9A085B2F69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		74BE8E71FF6BEEE92CD21FCB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocketMessager/Pods-SocketMessager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78F8E4A2C582285396273557 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocketMessagerTests/Pods-SocketMessagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB963B465C9B3C0C81B8A48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocketMessager/Pods-SocketMessager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C45CA66CB36266AB90FEF645 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocketMessagerUITests/Pods-SocketMessagerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D86CC08B7D644E47D1FE55F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E59F2384BEC4B2F1DD1E3FFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocketMessagerTests/Pods-SocketMessagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F72420C6E8B027D56F271496 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D4040211D0D9BC500DA24F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D4040661D0DB5B700DA24F5 /* JZClientJoinServerViewController.m in Sources */,
+				0D4040601D0DA02D00DA24F5 /* JZMenuViewController.m in Sources */,
+				0D4040771D0DDC0600DA24F5 /* JZClientChatGroupSelectionViewController.m in Sources */,
+				0D4040961D0E193000DA24F5 /* JZMessageModelAllClientArray.m in Sources */,
+				0D4040631D0DAE5E00DA24F5 /* JZServerViewController.m in Sources */,
+				0D4040931D0E190C00DA24F5 /* JZMessageModelTextMsg.m in Sources */,
+				0D40402D1D0D9BC500DA24F5 /* AppDelegate.m in Sources */,
+				0D4040701D0DD06F00DA24F5 /* JZSocketManager.m in Sources */,
+				0D40402A1D0D9BC500DA24F5 /* main.m in Sources */,
+				0D40408C1D0E000300DA24F5 /* JZClientChatViewController.m in Sources */,
+				0D4040881D0DF36300DA24F5 /* JZClientChatGroupSelectionTableViewCell.m in Sources */,
+				0D4040901D0E0C2A00DA24F5 /* JZMessageModel.m in Sources */,
+				0D4040741D0DDBB600DA24F5 /* JZClientChatNaviController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D40403A1D0D9BC500DA24F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D4040431D0D9BC500DA24F5 /* SocketMessagerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D4040451D0D9BC500DA24F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D40404E1D0D9BC500DA24F5 /* SocketMessagerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D4040401D0D9BC500DA24F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D4040241D0D9BC500DA24F5 /* SocketMessager */;
+			targetProxy = 0D40403F1D0D9BC500DA24F5 /* PBXContainerItemProxy */;
+		};
+		0D40404B1D0D9BC500DA24F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D4040241D0D9BC500DA24F5 /* SocketMessager */;
+			targetProxy = 0D40404A1D0D9BC500DA24F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0D4040311D0D9BC500DA24F5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D4040321D0D9BC500DA24F5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0D4040361D0D9BC500DA24F5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D4040371D0D9BC500DA24F5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0D4040501D0D9BC500DA24F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D4040511D0D9BC500DA24F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0D4040531D0D9BC500DA24F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F4A850093A3600450B56A7E /* Pods-SocketMessager.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SocketMessager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JustZht.SocketMessager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0D4040541D0D9BC500DA24F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F743F585A3286EEB5B2C4776 /* Pods-SocketMessager.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SocketMessager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JustZht.SocketMessager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0D4040561D0D9BC500DA24F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1F1C4A0BD8415806791CCFC /* Pods-SocketMessagerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SocketMessagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackbuster.SocketMessagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocketMessager.app/SocketMessager";
+			};
+			name = Debug;
+		};
+		0D4040571D0D9BC500DA24F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC4AB9E62397D20B25F14E0 /* Pods-SocketMessagerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SocketMessagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackbuster.SocketMessagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocketMessager.app/SocketMessager";
+			};
+			name = Release;
+		};
+		0D4040591D0D9BC500DA24F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56813EA90D5E0E8BF23EDF85 /* Pods-SocketMessagerUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SocketMessagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackbuster.SocketMessagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SocketMessager;
+			};
+			name = Debug;
+		};
+		0D40405A1D0D9BC500DA24F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AE064AF8BCFFD96C0F8E71D /* Pods-SocketMessagerUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SocketMessagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackbuster.SocketMessagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SocketMessager;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D4040201D0D9BC500DA24F5 /* Build configuration list for PBXProject "SocketMessager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D4040501D0D9BC500DA24F5 /* Debug */,
+				0D4040511D0D9BC500DA24F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D4040521D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D4040531D0D9BC500DA24F5 /* Debug */,
+				0D4040541D0D9BC500DA24F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D4040551D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D4040561D0D9BC500DA24F5 /* Debug */,
+				0D4040571D0D9BC500DA24F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D4040581D0D9BC500DA24F5 /* Build configuration list for PBXNativeTarget "SocketMessagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D4040591D0D9BC500DA24F5 /* Debug */,
+				0D40405A1D0D9BC500DA24F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D40401D1D0D9BC500DA24F5 /* Project object */;
+}

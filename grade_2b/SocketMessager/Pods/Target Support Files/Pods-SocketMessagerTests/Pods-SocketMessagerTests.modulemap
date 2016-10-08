@@ -1,0 +1,6 @@
+framework module Pods_SocketMessagerTests {
+  umbrella header "Pods-SocketMessagerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
