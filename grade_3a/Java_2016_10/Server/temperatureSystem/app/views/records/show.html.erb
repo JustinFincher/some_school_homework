@@ -12,7 +12,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @record.user_id %>
+  id：<%= @record.user_id %> 用户名：<%= @record.user.username %> | <%= link_to '查看用户', user_path(@record.user) %>
 </p>
 
 <%= link_to 'Edit', edit_record_path(@record) %> |

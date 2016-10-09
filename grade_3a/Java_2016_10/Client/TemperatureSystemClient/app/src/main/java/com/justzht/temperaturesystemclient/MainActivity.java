@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.hardware.SensorEventListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -123,20 +124,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        //sample usage of the onProfileChanged listener
-                        //if the clicked item has the identifier 1 add a new profile ;)
-//                        if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING) {
-//                            int count = 100 + headerResult.getProfiles().size() + 1;
-//                            IProfile newProfile = new ProfileDrawerItem().withNameShown(true).withName("Batman" + count).withEmail("batman" + count + "@gmail.com").withIcon(R.drawable.profile5).withIdentifier(count);
-//                            if (headerResult.getProfiles() != null) {
-//                                //we know that there are 2 setting elements. set the new profile above them ;)
-//                                headerResult.addProfile(newProfile, headerResult.getProfiles().size() - 2);
-//                            } else {
-//                                headerResult.addProfiles(newProfile);
-//                            }
-//                        }
+                        if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING)
+                        {
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainApplication.networkUri+"users/new"));
+                            startActivity(browserIntent);
+                        }
+                        else if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING + 1)
+                        {
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainApplication.networkUri+"users"));
+                            startActivity(browserIntent);
+                        }
 
-                        //false if you have not consumed the event and it should close the drawer
+                            //false if you have not consumed the event and it should close the drawer
                         return false;
                     }
                 })

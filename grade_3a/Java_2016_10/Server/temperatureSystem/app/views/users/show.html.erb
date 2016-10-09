@@ -20,5 +20,14 @@
   <%= @user.image %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to '编辑此用户', edit_user_path(@user) %> |
+<%= link_to '返回', users_path %>
+
+<p>
+  <strong>记录:</strong>
+  <% for i in @user.records %>
+    <p>
+      温度：<%= i.temperature %> 时间：<%= i.datetime %> <%= link_to '显示此条温度', record_path(i) %> | <%= link_to '编辑此条温度', edit_record_path(i) %>
+    </p>
+<% end %>
+</p>
