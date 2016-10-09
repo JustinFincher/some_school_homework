@@ -204,13 +204,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     protected void onResume() {
+        Log.d("MainActivity","onResume");
         super.onResume();
         mSensorManager.registerListener(this, mTempSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     protected void onPause() {
         super.onPause();
-        mSensorManager.unregisterListener(this);
+        mSensorManager.unregisterListener(this,mTempSensor);
+        Log.d("MainActivity","onPause");
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy)
