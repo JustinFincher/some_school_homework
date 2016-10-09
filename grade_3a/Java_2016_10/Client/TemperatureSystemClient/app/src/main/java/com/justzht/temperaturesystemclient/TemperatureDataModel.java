@@ -1,6 +1,7 @@
 package com.justzht.temperaturesystemclient;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import io.realm.RealmObject;
 
@@ -10,6 +11,6 @@ import io.realm.RealmObject;
 
 public class TemperatureDataModel extends RealmObject
 {
-    public Calendar recordTime;
+    public Date recordTime;
     public float temperature;
 }

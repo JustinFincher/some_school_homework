@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: 1.5
+  datetime: 2016-10-09 19:33:08
+  user_id: 1
+
+two:
+  temperature: 1.5
+  datetime: 2016-10-09 19:33:08
+  user_id: 1

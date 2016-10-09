@@ -5,6 +5,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.hardware.SensorEventListener;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import static android.content.Context.SENSOR_SERVICE;
 
+import com.google.gson.Gson;
 import com.mikepenz.materialdrawer.*;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -38,10 +41,18 @@ import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 
+import java.io.IOException;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
 import java.io.Console;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener
 {
+
     private static final int PROFILE_SETTING = 100000;
     private Drawer result = null;
     private AccountHeader headerResult = null;
@@ -57,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public float temperature = 100;
 
+    OkHttpClient client = new OkHttpClient();
 
 
     @Override
@@ -92,18 +104,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         fragTransaction.commit();
 
 
-        final IProfile profile1 = new ProfileDrawerItem().withName("郑昊天").withEmail("justzht@gmail.com").withIcon("https://avatars1.githubusercontent.com/u/8359912?v=3&s=400").withIdentifier(1);
-        final IProfile profile2 = new ProfileDrawerItem().withName("袁冠达").withEmail("731327835@qq.com").withIcon("https://avatars3.githubusercontent.com/u/10547751?v=3&s=400").withIdentifier(2);
-        final IProfile profile3 = new ProfileDrawerItem().withName("张崇").withEmail("flyhighdream@qq.com").withIcon("https://avatars0.githubusercontent.com/u/9525158?v=3&s=400").withIdentifier(3);
+//        final IProfile profile1 = new ProfileDrawerItem().withName("郑昊天").withEmail("justzht@gmail.com").withIcon("https://avatars1.githubusercontent.com/u/8359912?v=3&s=400").withIdentifier(1);
+//        final IProfile profile2 = new ProfileDrawerItem().withName("袁冠达").withEmail("731327835@qq.com").withIcon("https://avatars3.githubusercontent.com/u/10547751?v=3&s=400").withIdentifier(2);
+//        final IProfile profile3 = new ProfileDrawerItem().withName("张崇").withEmail("flyhighdream@qq.com").withIcon("https://avatars0.githubusercontent.com/u/9525158?v=3&s=400").withIdentifier(3);
 
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.color.primary_dark)
                 .addProfiles(
-                        profile1,
-                        profile2,
-                        profile3,
+//                        profile1,
+//                        profile2,
+//                        profile3,
                         //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
                         new ProfileSettingDrawerItem().withName("添加账户").withIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_add).actionBar().paddingDp(5).colorRes(R.color.material_drawer_primary_text)).withIdentifier(PROFILE_SETTING),
                         new ProfileSettingDrawerItem().withName("管理账户").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(PROFILE_SETTING+1)
@@ -181,7 +193,53 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .withSavedInstance(savedInstanceState)
                 .build();
 
+        new Thread(runnable).start();
+
     }
+
+
+    Runnable runnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            Log.d("TAG","Runnable");
+            Request request = new Request.Builder()
+                    .url(MainApplication.networkUri+"users.json")
+                    .build();
+            try
+            {
+                Response response = client.newCall(request).execute();
+
+                Gson gson = new Gson();
+                User[] userData = gson.fromJson(response.body().string(),User[].class);
+                for (int i = 0; i < userData.length; i++)
+                {
+                    User user = userData[i];
+                    final IProfile profile = new ProfileDrawerItem().withName(user.username).withEmail(user.email).withIcon(user.image).withIdentifier(user.id);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run()
+                        {
+                            if (headerResult.getProfiles() != null)
+                            {
+                                //we know that there are 2 setting elements. set the new profile above them ;)
+                                headerResult.addProfile(profile, headerResult.getProfiles().size() - 2);
+                            } else {
+                                headerResult.addProfiles(profile);
+                            }
+                        }
+                    });
+
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    };
 
     @Override
     public void onBackPressed() {
