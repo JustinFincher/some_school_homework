@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     OkHttpClient client = new OkHttpClient();
 
+    public static long currentLoginUserID = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -113,17 +114,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.color.primary_dark)
-                .addProfiles(
-//                        profile1,
-//                        profile2,
-//                        profile3,
-                        //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        new ProfileSettingDrawerItem().withName("添加账户").withIcon(new IconicsDrawable(this, GoogleMaterial.Icon.gmd_add).actionBar().paddingDp(5).colorRes(R.color.material_drawer_primary_text)).withIdentifier(PROFILE_SETTING),
-                        new ProfileSettingDrawerItem().withName("管理账户").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(PROFILE_SETTING+1)
-                )
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener()
+                {
                     @Override
-                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
+                    public boolean onProfileChanged(View view, IProfile profile, boolean current)
+                    {
                         if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING)
                         {
                             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainApplication.networkUri+"users/new"));
@@ -133,6 +128,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         {
                             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainApplication.networkUri+"users"));
                             startActivity(browserIntent);
+                        }
+                        else if (profile instanceof IDrawerItem && profile.getIdentifier() == PROFILE_SETTING + 2)
+                        {
+                            new Thread(runnable).start();
+                        }else
+                        {
+                            // Set Current Login User
+                            currentLoginUserID = profile.getIdentifier();
+                            Log.d("MainActivity","Current Login User ID : "+currentLoginUserID);
                         }
 
                             //false if you have not consumed the event and it should close the drawer
@@ -202,6 +206,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         @Override
         public void run()
         {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run()
+                {
+                    headerResult.clear();
+                    headerResult.addProfiles(
+                            new ProfileSettingDrawerItem().withName("添加账户").withIcon(GoogleMaterial.Icon.gmd_add).withIdentifier(PROFILE_SETTING),
+                            new ProfileSettingDrawerItem().withName("管理账户").withIcon(GoogleMaterial.Icon.gmd_settings).withIdentifier(PROFILE_SETTING+1),
+                            new ProfileSettingDrawerItem().withName("刷新账户").withIcon(GoogleMaterial.Icon.gmd_refresh).withIdentifier(PROFILE_SETTING+2)
+                    );
+                }
+            });
             Log.d("TAG","Runnable");
             Request request = new Request.Builder()
                     .url(MainApplication.networkUri+"users.json")
@@ -224,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             if (headerResult.getProfiles() != null)
                             {
                                 //we know that there are 2 setting elements. set the new profile above them ;)
-                                headerResult.addProfile(profile, headerResult.getProfiles().size() - 2);
+                                headerResult.addProfile(profile, headerResult.getProfiles().size() - 3);
                             } else {
                                 headerResult.addProfiles(profile);
                             }

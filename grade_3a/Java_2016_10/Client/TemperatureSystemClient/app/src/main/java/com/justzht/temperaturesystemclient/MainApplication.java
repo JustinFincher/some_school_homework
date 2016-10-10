@@ -22,6 +22,8 @@ public class MainApplication extends Application
 {
     public static String networkUri = "http://192.168.199.235:3000/";
 
+
+
     @Override
     public void onCreate()
     {
