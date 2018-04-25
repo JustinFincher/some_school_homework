@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<%= form_with(model: @user, local: true) do |form| %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <div class="form-group">
+    <%= form.label "用户名", for: :user_name  %>
+    <%= form.text_field :name, id: :user_name, class:"form-control",placeholder:"请输入用户名", readonly:""%>
+  </div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+  <div class="form-group">
+    <%= form.label "邮箱", for: :user_email  %>
+    <%= form.text_field :email, id: :user_email, class:"form-control",placeholder:"请输入地址",type:"email" , readonly:""%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "密码", for: :user_password  %>
+    <%= form.text_field :password, id: :user_password, class:"form-control",placeholder:"请输入密码",type:"password", readonly:"" %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

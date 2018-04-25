@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
+  <div class="form-group">
+    <%= form.label "用户名", for: :user_name  %>
+    <%= form.text_field :name, id: :user_name, class:"form-control",placeholder:"请输入用户名" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
+  <div class="form-group">
+    <%= form.label "邮箱", for: :user_email  %>
+    <%= form.text_field :email, id: :user_email, class:"form-control",placeholder:"请输入地址",type:"email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :user_password %>
+  <div class="form-group">
+    <%= form.label "密码", for: :user_password  %>
+    <%= form.text_field :password, id: :user_password, class:"form-control",placeholder:"请输入密码",type:"password" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p class="btn-group" role="group">
+    <%= form.submit "保存", class:"btn btn-primary" %>
+  <p/>
 <% end %>

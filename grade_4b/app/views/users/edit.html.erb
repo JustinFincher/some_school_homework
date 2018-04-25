@@ -1,6 +1,8 @@
-<h1>Editing User</h1>
+<h1>编辑用户：<%= @user.name %></h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<span class="btn-group" role="group" aria-label="Basic example">
+  <%= link_to '查看', @user, class:"btn btn-primary" %>
+  <%= link_to '返回', users_path,class:"btn btn-primary" %>
+</span>
