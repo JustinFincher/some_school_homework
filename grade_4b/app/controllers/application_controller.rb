@@ -2,6 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def show
-    @git_message = `git show --pretty=%H`
+    render html: "hello, world!"
   end
 end

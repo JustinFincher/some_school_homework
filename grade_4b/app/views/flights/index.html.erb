@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col">
+    <h1>航班管理</h1>
+  </div>
+  <div class="col col-lg-2">
+    <%= link_to '添加航班', new_flight_path, :class => 'btn btn-primary btn-block' %>
+  </div>
+</div>
+<br>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th>名称</th>
+    <th>航班号</th>
+    <th>起飞时间</th>
+    <th>降落时间</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @flights.each do |flight| %>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= flight.name %></td>
+      <td><%= flight.number %></td>
+      <td><%= flight.begintime %></td>
+      <td><%= flight.endtime %></td>
+      <td><%= link_to '展示', flight %></td>
+      <td><%= link_to '编辑', edit_flight_path(flight) %></td>
+      <td><%= link_to '删除', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
