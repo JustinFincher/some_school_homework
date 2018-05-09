@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :plane_name %>
+  <div class="form-group">
+    <%= form.label "班机名称", for: :plane_name  %>
+    <%= form.text_field :name, id: :plane_name, class:"form-control",placeholder:"请输入飞机名称" %>
   </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type, id: :plane_type %>
+  <div class="form-group">
+    <%= form.label "班机型号", for: :plane_type  %>
+    <%= form.text_field :type, id: :plane_type, class:"form-control",placeholder:"请输入飞机型号" %>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.number_field :size, id: :plane_size %>
+  <div class="form-group">
+    <%= form.label "班机座位数", for: :plane_size  %>
+    <%= form.text_field :size, id: :plane_size, class:"form-control",placeholder:"请输入飞机座位数",type:"number" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p class="btn-group" role="group">
+    <%= form.submit "保存", class:"btn btn-primary" %>
+  <p/>
 <% end %>

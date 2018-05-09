@@ -1,0 +1,2 @@
+class PlaneBlueprint < ApplicationRecord
+end

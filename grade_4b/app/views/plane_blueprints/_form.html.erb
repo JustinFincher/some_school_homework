@@ -1,0 +1,22 @@
+<%= form_with(model: plane_blueprint, local: true) do |form| %>
+  <% if plane_blueprint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plane_blueprint.errors.count, "error") %> prohibited this plane_blueprint from being saved:</h2>
+
+      <ul>
+      <% plane_blueprint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :seat_map %>
+    <%= form.text_field :seat_map, id: :plane_blueprint_seat_map %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Plane Blueprints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seat map</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plane_blueprints.each do |plane_blueprint| %>
+      <tr>
+        <td><%= plane_blueprint.seat_map %></td>
+        <td><%= link_to 'Show', plane_blueprint %></td>
+        <td><%= link_to 'Edit', edit_plane_blueprint_path(plane_blueprint) %></td>
+        <td><%= link_to 'Destroy', plane_blueprint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plane Blueprint', new_plane_blueprint_path %>

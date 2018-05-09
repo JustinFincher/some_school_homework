@@ -22,6 +22,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label "性别", for: :user_sex_type  %>
+    <%= form.select(:sex_type, User.sex_types.keys, {}, { :class => 'form-control', :id => :user_sex_type })%>
+  </div>
+
+  <div class="form-group">
     <%= form.label "密码", for: :user_password  %>
     <%= form.text_field :password, id: :user_password, class:"form-control",placeholder:"请输入密码",type:"password" %>
   </div>

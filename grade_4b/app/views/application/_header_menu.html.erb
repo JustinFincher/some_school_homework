@@ -3,12 +3,13 @@
     <i class="fa fa-plane text-primary"></i>
     <h5 class="my-0 mr-md-auto font-weight-bold text-primary" style="margin-left: 10px;">航空后台管理系统</h5>
     <nav class="my-2 my-md-0 mr-md-3">
+      <%= link_to "飞机种类", plane_blueprints_url, :class  => "p-2 text-dark" %>
       <%= link_to "班机", planes_url, :class  => "p-2 text-dark" %>
       <%= link_to "航班", flights_url, :class  => "p-2 text-dark" %>
-      <a class="p-2 text-dark" href="#">机票</a>
-      <a class="p-2 text-dark" href="#">订单</a>
+      <%= link_to "机票", tickets_url, :class  => "p-2 text-dark" %>
       <a class="p-2 text-dark" href="#">统计</a>
       <%= link_to "用户", users_url, :class  => "p-2 text-dark" %>
+      <%= link_to "属性", backstage_props_url, :class  => "p-2 text-dark" %>
     </nav>
     <a class="btn btn-outline-primary" href="#">登陆 / 注册</a>
   </div>

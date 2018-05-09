@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Backstage Props</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backstage_props.each do |backstage_prop| %>
+      <tr>
+        <td><%= link_to 'Show', backstage_prop %></td>
+        <td><%= link_to 'Edit', edit_backstage_prop_path(backstage_prop) %></td>
+        <td><%= link_to 'Destroy', backstage_prop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backstage Prop', new_backstage_prop_path %>

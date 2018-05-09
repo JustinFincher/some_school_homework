@@ -1,0 +1,78 @@
+<%= form_with(model: backstage_prop, local: true) do |form| %>
+  <% if backstage_prop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(backstage_prop.errors.count, "error") %> prohibited this backstage_prop from being saved:</h2>
+
+      <ul>
+        <% backstage_prop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+          班机型号管理
+        </a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">名称</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <%= form_tag backstage_prop_add_plane_type_path, method: :post do %>
+                <th scope="row">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">+</span>
+                    </div>
+                    <%= form.text_field 'modified_plane_type', id: 'modified_plane_type', class:"form-control",placeholder:"飞机型号" %>
+                  </div>
+                </th>
+                <td>
+                  <%= form.submit "新增可用飞机型号", class:"btn btn-outline-secondary btn-block" %>
+                </td>
+              <% end %>
+            </tr>
+            <% @backstage_prop.plane_types.each do |type,index| %>
+              <tr>
+                <th scope="row"><%= index %></th>
+                <td><%= type %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" style="padding-top: 2em;">
+    <div class="col">
+      <button type="button" class="btn btn-outline-secondary btn-block">取消</button>
+    </div>
+    <div class="col">
+      <%= form.submit "保存", class:"btn btn-outline-primary btn-block" %>
+    </div>
+  </div>
+<% end %>
