@@ -57,8 +57,21 @@ class BackstagePropsController < ApplicationController
   # PATCH/PUT /backstage_props/1
   # PATCH/PUT /backstage_props/1.json
   def update
+
+
+    @modified_plane_type = params[:backstage_prop][:modified_plane_type]
+    if @modified_plane_type.present?
+      unless @backstage_prop.plane_types.present?
+        @backstage_prop.plane_types = []
+      end
+      logger.debug @modified_plane_type
+      @backstage_prop.plane_types.push(@modified_plane_type)
+      @backstage_prop.save
+    end
+
     respond_to do |format|
       if @backstage_prop.update(backstage_prop_params)
+
         format.html { redirect_to @backstage_prop, notice: 'Backstage prop was successfully updated.' }
         format.json { render :show, status: :ok, location: @backstage_prop }
       else
@@ -66,10 +79,6 @@ class BackstagePropsController < ApplicationController
         format.json { render json: @backstage_prop.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def add_plane_type
-    @para = backstage_prop_params
   end
 
   # DELETE /backstage_props/1
@@ -90,7 +99,11 @@ class BackstagePropsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def backstage_prop_params
-    params.fetch(:backstage_prop, {})
+
+    # params.fetch(:backstage_prop).permit!
+    params.require(:backstage_prop).permit()
+    # params.permit(:backstage_prop, :modified_plane_type)
+    # params.permit!
   end
 
   def already_has_prop_exist?
