@@ -11,12 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :seat_map %>
-    <%= form.text_field :seat_map, id: :plane_blueprint_seat_map %>
+  <div class="form-group">
+    <%= form.label "座舱图地址", for: :plane_blueprint_name %>
+    <%= form.select :name, BackstageProp.get_the_only_prop.plane_types,id: :plane_blueprint_name, :prompt => 'Select One' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label "座舱图地址", for: :plane_blueprint_seat_map %>
+    <%= form.text_field :seat_map, id: :plane_blueprint_seat_map, class: "form-control", placeholder: "请输入座舱图地址" %>
   </div>
+
+  <p class="btn-group" role="group">
+    <%= form.submit "保存", class:"btn btn-primary" %>
+  <p/>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509070451) do
+ActiveRecord::Schema.define(version: 20180513084020) do
 
   create_table "backstage_props", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180509070451) do
     t.string "seat_map"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "planes", force: :cascade do |t|
