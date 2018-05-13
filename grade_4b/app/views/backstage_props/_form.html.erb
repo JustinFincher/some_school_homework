@@ -31,18 +31,22 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">名称</th>
+              <th colspan="1">操作</th>
             </tr>
             </thead>
             <tbody>
             <tr>
               <th scope="row">
+                0
+              </th>
+              <td>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">+</span>
                   </div>
-                  <%= form.text_field 'modified_plane_type', id: 'modified_plane_type', class:"form-control",placeholder:"飞机型号" %>
+                  <%= form.text_field 'modified_plane_type', id: 'modified_plane_type', class: "form-control", placeholder: "飞机型号" %>
                 </div>
-              </th>
+              </td>
               <td>
                 <%= form.submit "新增可用飞机型号", class:"btn btn-outline-secondary btn-block" %>
               </td>
@@ -51,6 +55,9 @@
               <tr>
                 <th scope="row"><%= index + 1 %></th>
                 <td><%= type %></td>
+                <td><%= link_to '删除',backstage_prop_delete_plane_type_path(@backstage_prop.id,:id=>@backstage_prop.id,:plane_type => type) ,method: :post, data:{
+                    confirm: '确定删除？'
+                }  %></td>
               </tr>
             <% end %>
             </tbody>

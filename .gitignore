@@ -2,3 +2,4 @@
 grade_4b/\.idea/
 
 *.cache
+.DS_Store

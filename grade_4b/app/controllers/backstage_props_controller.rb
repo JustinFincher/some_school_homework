@@ -54,10 +54,30 @@ class BackstagePropsController < ApplicationController
 
   end
 
+  def delete_plane_type
+    set_backstage_prop
+
+    logger.debug params[:plane_type]
+    unless @backstage_prop.plane_types.present?
+      @backstage_prop.plane_types = []
+    end
+    @backstage_prop.plane_types.delete(params[:plane_type])
+
+    respond_to do |format|
+      if @backstage_prop.save
+        format.html { redirect_to @backstage_prop, notice: 'Backstage prop was successfully updated.' }
+        format.json { render :show, status: :ok, location: @backstage_prop }
+      else
+        format.html { render :edit }
+        format.json { render json: @backstage_prop.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
   # PATCH/PUT /backstage_props/1
   # PATCH/PUT /backstage_props/1.json
   def update
-
 
     @modified_plane_type = params[:backstage_prop][:modified_plane_type]
     if @modified_plane_type.present?
