@@ -1,19 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @plane.name %>
-</p>
+<div class="row">
+  <div class="col-4">
 
-<p>
-  <strong>Type:</strong>
-  <%= @plane.type %>
-</p>
+    <div class="card">
 
-<p>
-  <strong>Size:</strong>
-  <%= @plane.size %>
-</p>
+      <%= image_tag(@plane.plane_blueprint.seat_map, {:class => "card-img-top"}) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @plane.plane_blueprint.name %></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <%= link_to "查看机型",@plane.plane_blueprint , :class=>"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <h1><%= @plane.name %></h1>
+    <%= form_with(model: @plane, local: true) do |form| %>
+      <% if @plane.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(plane.errors.count, "error") %> prohibited this plane from being saved:</h2>
 
-<%= link_to 'Edit', edit_plane_path(@plane) %> |
-<%= link_to 'Back', planes_path %>
+          <ul>
+            <% plane.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label "班机名称", for: :plane_name %>
+        <%= form.text_field :name, id: :plane_name, class: "form-control", placeholder: "请输入飞机名称", readonly: "" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label "班机型号", for: :plane_plane_blueprint_id %>
+        <%= form.select :plane_blueprint_id, PlaneBlueprint.all.collect {|p| [p['name'], p['id']]}, {}, {id: :plane_plane_blueprint_id, class: "form-control", :disabled => ""} %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label "班机座位数", for: :plane_size %>
+        <%= form.text_field :size, id: :plane_size, class: "form-control", placeholder: "请输入飞机座位数", type: "number", readonly: "" %>
+      </div>
+    <% end %>
+
+
+
+    <%= link_to 'Edit', edit_plane_path(@plane) %> |
+    <%= link_to 'Back', planes_path %>
+  </div>
+</div>
+
+

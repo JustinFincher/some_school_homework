@@ -22,7 +22,7 @@
   <% @plane_blueprints.each do |plane_blueprint| %>
     <tr>
       <th scope="row"><%= plane_blueprint.id %></th>
-      <td></td>
+      <td><%= plane_blueprint.name %></td>
       <td><%= link_to '展示', plane_blueprint %></td>
       <td><%= link_to '编辑', edit_plane_blueprint_path(plane_blueprint) %></td>
       <td><%= link_to '删除', plane_blueprint, method: :delete, data: {confirm: 'Are you sure?'} %></td>

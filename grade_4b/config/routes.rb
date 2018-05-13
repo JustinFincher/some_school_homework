@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   root 'application#show'
 
+  # get 'analytics#index'
+  resources :analytics
 end

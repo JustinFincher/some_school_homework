@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Seat map:</strong>
-  <%= @plane_blueprint.seat_map %>
-</p>
+<%= form_with(model: @plane_blueprint, local: true) do |form| %>
+
+  <div class="form-group">
+    <%= form.label "飞机型号", for: :plane_blueprint_name %>
+    <%= form.select :name, BackstageProp.get_the_only_prop.plane_types, {}, {id: :plane_blueprint_name, class: "form-control", :prompt => 'Select One',:disabled=>""} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "座舱图地址", for: :plane_blueprint_seat_map %>
+    <%= form.text_field :seat_map, id: :plane_blueprint_seat_map, class: "form-control", placeholder: "请输入座舱图地址" ,readonly:""%>
+  </div>
+
+<% end %>
 
 <%= link_to 'Edit', edit_plane_blueprint_path(@plane_blueprint) %> |
 <%= link_to 'Back', plane_blueprints_path %>
