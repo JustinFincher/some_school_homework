@@ -8,8 +8,9 @@
       <%= image_tag(@plane.plane_blueprint.seat_map, {:class => "card-img-top"}) %>
       <div class="card-body">
         <h5 class="card-title"><%= @plane.plane_blueprint.name %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <p class="card-text">
+          <%= @plane.plane_blueprint.description %>
+        </p>
         <%= link_to "查看机型",@plane.plane_blueprint , :class=>"btn btn-primary" %>
       </div>
     </div>

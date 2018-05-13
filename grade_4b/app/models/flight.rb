@@ -1,3 +1,3 @@
 class Flight < ApplicationRecord
-  enum type: [:a380, :b777]
+  has_and_belongs_to_many :planes
 end

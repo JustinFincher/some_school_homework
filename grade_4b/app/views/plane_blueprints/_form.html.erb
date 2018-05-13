@@ -21,6 +21,11 @@
     <%= form.text_field :seat_map, id: :plane_blueprint_seat_map, class: "form-control", placeholder: "请输入座舱图地址" %>
   </div>
 
+  <div class="form-group">
+    <%= form.label "描述", for: :plane_blueprint_description %>
+    <%= form.text_area :description, id: :plane_blueprint_description, class: "form-control", placeholder: "请输入机型描述" %>
+  </div>
+
   <p class="btn-group" role="group">
     <%= form.submit "保存", class:"btn btn-primary" %>
   <p/>

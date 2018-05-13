@@ -70,6 +70,6 @@ class PlaneBlueprintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plane_blueprint_params
-      params.require(:plane_blueprint).permit(:seat_map,:name)
+      params.require(:plane_blueprint).permit(:seat_map,:name,:description)
     end
 end

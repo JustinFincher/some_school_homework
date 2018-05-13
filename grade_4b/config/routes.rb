@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :tickets
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'application#show'
+  root 'application#index'
 
   # get 'analytics#index'
   resources :analytics
