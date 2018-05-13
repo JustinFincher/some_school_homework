@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @flight.name %>
-</p>
+<%= form_with(model: @flight, local: true) do |form| %>
 
-<p>
-  <strong>Number:</strong>
-  <%= @flight.number %>
-</p>
+  <div class="form-group">
+    <%= form.label "航班名称", for: :flight_name %>
+    <%= form.text_field :name, id: :flight_name, class: "form-control", placeholder: "请输入航班名称" ,readonly:""%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "航班号", for: :flight_number %>
+    <%= form.text_field :number, id: :flight_number, class: "form-control", placeholder: "请输入航班号" ,readonly:""%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "飞机型号", for: :flight_plane_ids %>
+    <%= form.select :plane_ids, Plane.all.collect {|p| [ p['name'], p['id'] ] }, { :include_blank=> false, :include_hidden=> false}, {id: :flight_plane_ids, class: "form-control", :multiple => "", :disabled=>""} %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_flight_path(@flight) %> |
 <%= link_to 'Back', flights_path %>
