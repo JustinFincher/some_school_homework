@@ -26,7 +26,38 @@
     <%= form.select :plane_ids, Plane.all.collect {|p| [ p['name'], p['id'] ] }, { :include_blank=> false, :include_hidden=> false}, {id: :flight_plane_ids, class: "form-control", :multiple => ""} %>
   </div>
 
+  <div class="form-group">
+    <%= form.label "起飞时间", for: :flight_begintime %>
+    <div class="input-group date" id="flight_begintime" data-target-input="nearest">
+      <%= form.text_field :begintime, class: "form-control datetimepicker-input", "data-target":"#flight_begintime"%>
+      <div class="input-group-append" data-target="#flight_begintime" data-toggle="datetimepicker">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "降落时间", for: :flight_endtime %>
+    <div class="input-group date" id="flight_endtime" data-target-input="nearest">
+      <%= form.text_field :endtime, class: "form-control datetimepicker-input", "data-target": "#flight_endtime" %>
+      <div class="input-group-append" data-target="#flight_endtime" data-toggle="datetimepicker">
+        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    $(function () {
+        $('#flight_begintime').datetimepicker({
+            locale: 'zh-cn'
+        });
+        $('#flight_endtime').datetimepicker({
+            locale: 'zh-cn'
+        });
+    });
+</script>

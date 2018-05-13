@@ -44,6 +44,21 @@
         <%= form.label "班机座位数", for: :plane_size %>
         <%= form.text_field :size, id: :plane_size, class: "form-control", placeholder: "请输入飞机座位数", type: "number", readonly: "" %>
       </div>
+
+      <div class="form-group">
+        <%= form.label "执飞航班", for: :plane_running_flights %>
+        <div id="plane_running_flights">
+          <div class="list-group">
+            <% @plane.flights.each do |flight| %>
+              <%= link_to flight.name,flight, :class => "list-group-item list-group-item-action"  %>
+            <% end %>
+            <% if @plane.flights.empty? %>
+              <a class="list-group-item list-group-item-action">尚无执飞航班</a>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
     <% end %>
 
 

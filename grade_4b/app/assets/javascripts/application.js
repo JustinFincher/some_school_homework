@@ -15,5 +15,8 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require vue
+//= require moment
+//= require moment/zh-cn.js
 //= require turbolinks
 //= require_tree .
+//= require tempusdominus-bootstrap-4.js
