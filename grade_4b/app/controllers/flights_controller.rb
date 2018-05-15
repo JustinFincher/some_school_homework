@@ -10,6 +10,8 @@ class FlightsController < ApplicationController
   # GET /flights/1
   # GET /flights/1.json
   def show
+    set_flight
+    keep_prices_present(@flight)
   end
 
   # GET /flights/new
@@ -29,6 +31,10 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
+
+        logger.debug @flight
+        keep_prices_present(@flight)
+
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
       else
@@ -41,6 +47,7 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1
   # PATCH/PUT /flights/1.json
   def update
+    keep_prices_present(@flight)
     logger.debug flight_params
     respond_to do |format|
       if @flight.update(flight_params)
@@ -64,6 +71,14 @@ class FlightsController < ApplicationController
   end
 
   private
+
+  def keep_prices_present(flight)
+    Price.seat_levels.keys.each do |key|
+      Price.get_or_create_price(flight.id,key)
+    end
+  end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_flight
       @flight = Flight.find(params[:id])

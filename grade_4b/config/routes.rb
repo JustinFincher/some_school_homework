@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :prices
   resources :backstage_props do
     post 'delete_plane_type'
   end

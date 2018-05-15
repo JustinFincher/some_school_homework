@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ticket.price %>
-</p>
+<%= form_with(model: @ticket, local: true) do |form| %>
 
-<p>
-  <strong>User:</strong>
-  <%= @ticket.user_id %>
-</p>
+  <div class="field">
+    <%= form.label "价格", for: :ticket_real_price %>
+    <%= form.text_field :real_price, id: :ticket_real_price,class: "form-control", placeholder: "请输入价格", type: "number"%>
+  </div>
 
-<p>
-  <strong>Flight:</strong>
-  <%= @ticket.flight_id %>
-</p>
+  <div class="form-group">
+    <%= form.label "座舱等级", for: :ticket_user_seat_level %>
+    <%= form.select :user_seat_level, Price.seat_levels.keys,{},  { id: :ticket_user_seat_level,class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "航班", for: :ticket_flight_id %>
+    <%= form.select :flight_id, Flight.all.collect {|p| [p['name'], p['id']]},{}, { id: :ticket_flight_id,class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "用户", for: :ticket_user_id %>
+    <%= form.select :user_id, User.all.collect {|p| [p['name'], p['id']]}, {}, {id: :ticket_user_id, class: "form-control"} %>
+  </div>
+
+<% end %>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>

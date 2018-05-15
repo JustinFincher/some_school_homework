@@ -1,31 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tickets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Price</th>
-      <th>User</th>
-      <th>Flight</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.user_id %></td>
-        <td><%= ticket.flight_id %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="row">
+  <div class="col">
+    <h1>机票管理</h1>
+  </div>
+  <div class="col col-lg-2">
+    <%= link_to '添加机票', new_ticket_path, :class => 'btn btn-primary btn-block' %>
+  </div>
+</div>
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">名称</th>
+    <th scope="col">价格</th>
+    <th scope="col">航班</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <th scope="row"><%= ticket.id %></th>
+      <td><%= ticket.price %></td>
+      <td><%= ticket.user_id %></td>
+      <td><%= ticket.flight_id %></td>
+      <td><%= link_to '展示', ticket %></td>
+      <td><%= link_to '编辑', edit_ticket_path(ticket) %></td>
+      <td><%= link_to '删除', ticket, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

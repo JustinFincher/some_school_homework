@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513184033) do
+ActiveRecord::Schema.define(version: 20180515061257) do
 
   create_table "backstage_props", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -48,12 +48,21 @@ ActiveRecord::Schema.define(version: 20180513184033) do
     t.integer "plane_blueprint_id"
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "prices", force: :cascade do |t|
+    t.integer "flight_id"
     t.float "price"
+    t.integer "seat_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "flight_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_id"
+    t.float "real_price"
   end
 
   create_table "users", force: :cascade do |t|
