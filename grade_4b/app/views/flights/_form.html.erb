@@ -31,29 +31,26 @@
     <%= form.datetime_field :begintime, id: :flight_begintime, class: 'form-control'%>
   </div>
 
-<!--  <div class="form-group">-->
-    <%#= form.label "起飞时间", for: :flight_begintime %>
-<!--    <div class="input-group date" id="flight_begintime" data-target-input="nearest">-->
-      <%#= form.text_field :begintime, class: 'form-control datetimepicker-input',  "data-target":"#flight_begintime"%>
-<!--      <div class="input-group-append" data-target="#flight_begintime" data-toggle="datetimepicker">-->
-<!--        <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
   <div class="form-group">
     <%= form.label "降落时间", for: :flight_endtime %>
-    <div class="input-group date" id="flight_endtime" data-target-input="nearest">
-      <%= form.text_field :endtime, class: 'form-control datetimepicker-input', "data-target": "#flight_endtime" %>
-      <div class="input-group-append" data-target="#flight_endtime" data-toggle="datetimepicker">
-        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-      </div>
+    <%= form.datetime_field :endtime, id: :flight_endtime, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "修改价格", for: :flight_prices %>
+    <br>
+    <div class="btn-group" id="flight_prices" role="group" >
+      <% @flight.prices.each do |price| %>
+        <%= link_to price.get_seat_level_name.to_s, edit_price_url(price.id), class:"btn btn-secondary",target:"popup",
+            onclick:"window.open('" + edit_price_url(price.id) + "','popup','width=400,height=640'); return false;"%>
+      <% end %>
     </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+  <p class="btn-group" role="group">
+    <%= form.submit "保存", class:"btn btn-primary" %>
+  <p/>
 <% end %>
 
 <script type="text/javascript">
@@ -62,9 +59,9 @@
         //     locale: 'zh-cn',
         //     format:'yyyy-mm-dd'
         // });
-        $('#flight_endtime').datetimepicker({
-            locale: 'zh-cn',
-            format:'Y-MM-DDThh:mm'
-        });
+        // $('#flight_endtime').datetimepicker({
+        //     locale: 'zh-cn',
+        //     format:'Y-MM-DDThh:mm'
+        // });
     });
 </script>

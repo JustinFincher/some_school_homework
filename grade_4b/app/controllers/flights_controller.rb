@@ -26,7 +26,9 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
+    logger.debug params
     logger.debug flight_params
+
     @flight = Flight.new(flight_params)
 
     respond_to do |format|
@@ -48,6 +50,7 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1.json
   def update
     keep_prices_present(@flight)
+    logger.debug params
     logger.debug flight_params
     respond_to do |format|
       if @flight.update(flight_params)
@@ -79,13 +82,13 @@ class FlightsController < ApplicationController
   end
 
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flight
-      @flight = Flight.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flight
+    @flight = Flight.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def flight_params
-      params.require(:flight).permit(:name, :number, :begintime, :endtime, :planes, :plane_ids => [] )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def flight_params
+    params.require(:flight).permit(:name, :number, :begintime, :price, :endtime, :planes, :plane_ids => [] )
+  end
 end

@@ -11,22 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :flight_id %>
-    <%= form.number_field :flight_id, id: :price_flight_id %>
+  <div class="form-group">
+    <label for="price_flight">所属航班</label>
+    <div class="input-group mb-3" id="price_flight">
+      <input type="text" class="form-control" placeholder="<%= price.flight.name %>" disabled>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">查看航班</button>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :price_price %>
+  <div class="form-group">
+    <label for="price_flight">所属座舱</label>
+    <div class="input-group mb-3" id="price_flight">
+      <input type="text" class="form-control" placeholder="<%= price.get_seat_level_name.to_s %>" disabled>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :seat_level %>
-    <%= form.number_field :seat_level, id: :price_seat_level %>
+
+  <div class="form-group">
+    <%= form.label "价格", for: :price_price %>
+    <%= form.text_field :price, id: :price_price, class: "form-control", placeholder: "请输入价格",type:"number" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p class="btn-group" role="group">
+    <%= form.submit "保存", class:"btn btn-primary" %>
+  <p/>
 <% end %>

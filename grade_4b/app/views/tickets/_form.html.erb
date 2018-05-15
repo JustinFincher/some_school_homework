@@ -17,8 +17,12 @@
   </div>
 
   <div class="form-group">
-    <%= form.label "座舱等级", for: :ticket_user_seat_level %>
-    <%= form.select :user_seat_level, Price.seat_levels.keys,{},  { id: :ticket_user_seat_level,class: "form-control"} %>
+    <%= form.label "座舱等级", for: :ticket_price_id %>
+    <% if ticket.flight_id.present? %>
+      <%= form.select :price_id, ticket.flight.prices, {}, {id: :ticket_price_id, class: "form-control"} %>
+    <% else %>
+      <%= form.select :seat_level, Price.seat_level_names.invert, {}, {id: :ticket_seat_level, class: "form-control"} %>
+    <% end %>
   </div>
 
   <div class="form-group">

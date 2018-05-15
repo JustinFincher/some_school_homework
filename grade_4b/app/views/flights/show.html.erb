@@ -12,9 +12,22 @@
     <%= form.text_field :number, id: :flight_number, class: "form-control", placeholder: "请输入航班号" ,readonly:""%>
   </div>
 
+<!--  <div class="form-group">-->
+    <%#= form.label "飞机型号", for: :flight_plane_ids %>
+    <%#= form.select :plane_ids, Plane.all.collect {|p| [ p['name'], p['id'] ] }, { :include_blank=> false, :include_hidden=> false}, {id: :flight_plane_ids, class: "form-control", :multiple => "", :disabled=>""} %>
+<!--  </div>-->
+
   <div class="form-group">
     <%= form.label "飞机型号", for: :flight_plane_ids %>
-    <%= form.select :plane_ids, Plane.all.collect {|p| [ p['name'], p['id'] ] }, { :include_blank=> false, :include_hidden=> false}, {id: :flight_plane_ids, class: "form-control", :multiple => "", :disabled=>""} %>
+    <div class="list-group" id="flight_plane_ids">
+      <% if @flight.planes.any? %>
+        <% @flight.planes.each do |plane| %>
+          <%= link_to plane.name, plane, class: "list-group-item list-group-item-action" %>
+        <% end %>
+      <% else %>
+        <li class="list-group-item">尚无飞机执飞</li>
+      <% end %>
+    </div>
   </div>
 
   <div class="form-group">
@@ -26,6 +39,18 @@
     <%= form.label "降落时间", for: :flight_endtime %>
     <%= form.text_field :endtime, class: "form-control", id: "flight_endtime", disabled: "" %>
   </div>
+
+  <div class="form-group">
+    <%= form.label "价格", for: :flight_prices %>
+    <div class="list-group" id="flight_prices">
+      <% @flight.prices.each do |price| %>
+        <%= link_to price.get_seat_level_name.to_s + ": ¥" +  price.price.to_s, edit_price_url(price.id), class: "list-group-item list-group-item-action", target: "popup",
+                    onclick: "window.open('" + edit_price_url(price.id) + "','popup','width=400,height=640'); return false;" %>
+      <% end %>
+    </div>
+  </div>
+
+
 <% end %>
 
 <%= link_to 'Edit', edit_flight_path(@flight) %> |

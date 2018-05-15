@@ -25,6 +25,8 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.price_id = Price.where(:flight_id => @ticket.flight_id,seat_level: params[:ticket][:seat_level]).first.id
+    @ticket.save
 
     respond_to do |format|
       if @ticket.save
@@ -69,6 +71,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:price, :user_id, :flight_id)
+      params.require(:ticket).permit(:price_id, :real_price, :user_id, :flight_id)
     end
 end

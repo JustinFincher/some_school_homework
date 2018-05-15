@@ -1,6 +1,15 @@
-
+<div class="row">
+  <div class="col">
+    <h1>用户管理</h1>
+  </div>
+  <div class="col col-lg-2">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to '展示', flights_path, class:"btn btn-outline-primary" %>
+      <%= link_to '返回', @flight, class:"btn btn-outline-primary" %>
+    </div>
+  </div>
+</div>
+<br>
 
 <%= render 'form', flight: @flight %>
 
-<%= link_to 'Show', @flight %> |
-<%= link_to 'Back', flights_path %>

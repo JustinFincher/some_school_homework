@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Flight:</strong>
-  <%= @price.flight_id %>
-</p>
+<%= form_with(model: @price, local: true) do |form| %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @price.price %>
-</p>
+  <div class="form-group">
+    <label for="price_flight">所属航班</label>
+    <div class="input-group mb-3" id="price_flight">
+      <input type="text" class="form-control" placeholder="<%= @price.flight.name %>" disabled>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">查看航班</button>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Seat level:</strong>
-  <%= @price.seat_level %>
-</p>
+  <div class="form-group">
+    <label for="price_flight">所属座舱</label>
+    <div class="input-group mb-3" id="price_flight">
+      <input type="text" class="form-control" placeholder="<%= @price.get_seat_level_name.to_s %>" disabled>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label "价格", for: :price_price %>
+    <%= form.text_field :price, id: :price_price, class: "form-control", placeholder: "请输入价格", type: "number",disabled:"" %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_price_path(@price) %> |
 <%= link_to 'Back', prices_path %>

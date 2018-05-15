@@ -14,9 +14,10 @@
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">名称</th>
-    <th scope="col">价格</th>
+    <th scope="col">购买人</th>
     <th scope="col">航班</th>
+    <th scope="col">实际付款</th>
+    <th scope="col">额定价格</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -24,9 +25,10 @@
   <% @tickets.each do |ticket| %>
     <tr>
       <th scope="row"><%= ticket.id %></th>
-      <td><%= ticket.price %></td>
-      <td><%= ticket.user_id %></td>
-      <td><%= ticket.flight_id %></td>
+      <td><%= ticket.user.name %></td>
+      <td><%= ticket.flight_id.present?? ticket.flight.name : "" %></td>
+      <td><%= ticket.real_price %></td>
+      <td><%= ticket.price_id.present?? ticket.price.price : "" %></td>
       <td><%= link_to '展示', ticket %></td>
       <td><%= link_to '编辑', edit_ticket_path(ticket) %></td>
       <td><%= link_to '删除', ticket, method: :delete, data: {confirm: 'Are you sure?'} %></td>

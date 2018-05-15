@@ -1,5 +1,18 @@
 class Price < ApplicationRecord
   enum seat_level: { economy: 0, business: 1 ,first_class: 2 }
+
+  def self.seat_level_names
+    @@seat_level_names
+  end
+  @@seat_level_names = {
+      self.seat_levels[:economy]=> '经济舱',
+      self.seat_levels[:business]=> '商务舱',
+      self.seat_levels[:first_class]=>'头等舱'
+  }
+  def get_seat_level_name
+    return @@seat_level_names[Price.seat_levels[self.seat_level]]
+  end
+
   belongs_to :flight
 
   def self.get_or_create_price (flight_id, seat_level)
