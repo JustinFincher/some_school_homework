@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col">
+    <h1>统计</h1>
+  </div>
+  <div class="col col-lg-2">
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <%= form_with url: analytics_url, method: :get, local: true do |form| %>
+
+        <div class="form-group">
+          <%= form.label "购买时间起", for: :begin_time %>
+          <%= form.date_field :begin_time, id: :begin_time, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label "购买时间末", for: :end_time %>
+          <%= form.date_field :end_time, id: :end_time, class: 'form-control' %>
+        </div>
+
+
+        <p class="btn-group" role="group">
+          <%= form.submit "搜索", class: "btn btn-primary" %>
+        <p/>
+      <% end %>
+    </div>
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">总计</h5>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= @begin_time.present?? @begin_time : "无限制" %> - <%= @end_time.present?? @end_time : "无限制" %></h6>
+          <p class="card-text"><%= '¥' + @sum.to_s %></p>
+          <a href="#" class="card-link">充值</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">购买人</th>
+    <th scope="col">航班</th>
+    <th scope="col">实际付款</th>
+    <th scope="col">额定价格</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <th scope="row"><%= ticket.id %></th>
+      <td><%= ticket.user.name %></td>
+      <td><%= ticket.flight_id.present?? ticket.flight.name : "" %></td>
+      <td><%= ticket.real_price %></td>
+      <td><%= ticket.price_id.present?? ticket.price.price : "" %></td>
+      <td><%= link_to '展示', ticket %></td>
+      <td><%= link_to '编辑', edit_ticket_path(ticket) %></td>
+      <td><%= link_to '删除', ticket, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

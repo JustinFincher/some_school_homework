@@ -28,6 +28,13 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <%= form.label "付款状态", for: :ticket_pay_status %>
+    <div class="list-group" id="ticket_pay_status">
+      <div class="list-group-item list-group-item-action"><%= Ticket.pay_status_names[Ticket.pay_statuses[@ticket.pay_status]] %></div>
+    </div>
+  </div>
+
 <% end %>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

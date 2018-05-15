@@ -19,7 +19,7 @@
   <div class="form-group">
     <%= form.label "座舱等级", for: :ticket_price_id %>
     <% if ticket.flight_id.present? %>
-      <%= form.select :price_id, ticket.flight.prices, {}, {id: :ticket_price_id, class: "form-control"} %>
+      <%= form.select :price_id, ticket.flight.prices.collect{|p| [Price.seat_level_names[Price.seat_levels[p['seat_level']]], p['id']]}, {}, {id: :ticket_price_id, class: "form-control"} %>
     <% else %>
       <%= form.select :seat_level, Price.seat_level_names.invert, {}, {id: :ticket_seat_level, class: "form-control"} %>
     <% end %>
@@ -33,6 +33,11 @@
   <div class="form-group">
     <%= form.label "用户", for: :ticket_user_id %>
     <%= form.select :user_id, User.all.collect {|p| [p['name'], p['id']]}, {}, {id: :ticket_user_id, class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "付款状态", for: :ticket_pay_status %>
+    <%= form.select :pay_status, Ticket.pay_status_names.invert.merge(Ticket.pay_status_names.invert){|k,ov|Ticket.pay_statuses.keys[ov]}, {}, {id: :ticket_pay_status, class: "form-control"} %>
   </div>
 
   <p class="btn-group" role="group">
