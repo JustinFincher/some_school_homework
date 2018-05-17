@@ -41,6 +41,17 @@
   </div>
 
   <div class="form-group">
+    <%= form.label "起始地", for: :flight_from_location %>
+    <%= form.text_field :from_location, id: :flight_from_location, class: "form-control",disabled: "" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label "目的地", for: :flight_to_location %>
+    <%= form.text_field :to_location, id: :flight_to_location, class: "form-control",  disabled: ""%>
+  </div>
+
+  <div class="form-group">
     <%= form.label "价格", for: :flight_prices %>
     <div class="list-group" id="flight_prices">
       <% @flight.prices.each do |price| %>

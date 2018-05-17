@@ -35,6 +35,13 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <%= form.label "预定时间", for: :ticket_created_at %>
+    <div class="list-group" id="ticket_created_at">
+      <div class="list-group-item list-group-item-action"><%= @ticket.created_at %></div>
+    </div>
+  </div>
+
 <% end %>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

@@ -21,6 +21,18 @@
     <%= form.text_field :number, id: :flight_number, class: "form-control", placeholder: "请输入航班号" %>
   </div>
 
+
+  <div class="form-group">
+    <%= form.label "起始地", for: :flight_from_location %>
+    <%= form.text_field :from_location, id: :flight_from_location, class: "form-control", placeholder: "请输入起始地" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label "目的地", for: :flight_to_location %>
+    <%= form.text_field :to_location, id: :flight_to_location, class: "form-control", placeholder: "请输入目的地" %>
+  </div>
+
   <div class="form-group">
     <%= form.label "飞机型号", for: :flight_plane_ids %>
     <%= form.select :plane_ids, Plane.all.collect {|p| [ p['name'], p['id'] ] }, { :include_blank=> false, :include_hidden=> false}, {id: :flight_plane_ids, class: "form-control", :multiple => ""} %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515175929) do
+ActiveRecord::Schema.define(version: 20180516060836) do
 
   create_table "backstage_props", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180515175929) do
     t.datetime "updated_at", null: false
     t.time "begintime"
     t.time "endtime"
+    t.string "from_location"
+    t.string "to_location"
   end
 
   create_table "flights_planes", id: false, force: :cascade do |t|

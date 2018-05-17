@@ -11,7 +11,7 @@ class AnalyticsController < ApplicationController
       @tickets = Ticket.all
     end
 
-    @sum = @tickets.inject(0){|sum,x| sum + x.real_price }
+    @sum = @tickets.select { |ticket| ticket.pay_status == 'paid' }.inject(0){|sum,x| sum + x.real_price }
   end
 
 
